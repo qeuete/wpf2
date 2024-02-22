@@ -1,0 +1,4 @@
+E:\инфа\скорогудаева\pr 1\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\инфа\скорогудаева\pr 1\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\App.g.cs
+E:\инфа\скорогудаева\pr 1\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1_MarkupCompile.cache
+E:\инфа\скорогудаева\pr 1\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1_MarkupCompile.lref

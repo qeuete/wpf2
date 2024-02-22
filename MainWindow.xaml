@@ -1,0 +1,173 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp1
+{
+    public partial class MainWindow : Window
+    {
+        List<Button> b;
+        Random r;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            b = new List<Button> { Button_1, Button_2, Button_3, Button_4, Button_5, Button_6, Button_7, Button_8, Button_9 };
+            r = new Random();
+        }
+        private bool Check()
+        {
+            int i = 0;
+            foreach (Button button in b)
+            {
+                if (button.IsEnabled == false)
+                {
+                    i++;
+                }
+            }
+            if (i == 9)
+                return true;
+            else
+                return false;
+        }
+
+        private void Random()
+        {
+            Random r = new Random();
+            int i = 0;
+            int nomer = r.Next(0, 9);
+            if (Check() == true)
+            {
+                Result();
+            }
+            else
+            {
+                while (b[nomer].IsEnabled == false)
+                {
+                    nomer = r.Next(0, 9);
+                }
+                b[nomer].Content = "O";
+                b[nomer].IsEnabled = false;
+            }
+        }
+
+        private void Block()
+        {
+            Button_1.IsEnabled = false;
+            Button_2.IsEnabled = false;
+            Button_3.IsEnabled = false;
+            Button_4.IsEnabled = false;
+            Button_5.IsEnabled = false;
+            Button_6.IsEnabled = false;
+            Button_7.IsEnabled = false;
+            Button_8.IsEnabled = false;
+            Button_9.IsEnabled = false;
+        }
+
+        private void Result()
+        {
+            if (Button_1.Content == "X" && Button_2.Content == "X" && Button_3.Content == "X" || Button_3.Content == "X" && Button_6.Content == "X" && Button_9.Content == "X"
+                || Button_7.Content == "X" && Button_8.Content == "X" && Button_9.Content == "X" || Button_1.Content == "X" && Button_4.Content == "X" && Button_7.Content == "X"
+                || Button_2.Content == "X" && Button_5.Content == "X" && Button_8.Content == "X" || Button_4.Content == "X" && Button_5.Content == "X" && Button_6.Content == "X"
+                || Button_1.Content == "X" && Button_5.Content == "X" && Button_9.Content == "X" || Button_7.Content == "X" && Button_5.Content == "X" && Button_3.Content == "X")
+            {
+                MessageBox.Show("Вы выиграли");
+                Block();
+            }
+            else if (Button_1.Content == "O" && Button_2.Content == "O" && Button_3.Content == "O" || Button_3.Content == "O" && Button_6.Content == "O" && Button_9.Content == "O"
+                    || Button_7.Content == "O" && Button_8.Content == "O" && Button_9.Content == "O" || Button_1.Content == "O" && Button_4.Content == "O" && Button_7.Content == "O"
+                    || Button_2.Content == "O" && Button_5.Content == "O" && Button_8.Content == "O" || Button_4.Content == "O" && Button_5.Content == "O" && Button_6.Content == "O"
+                    || Button_1.Content == "O" && Button_5.Content == "O" && Button_9.Content == "O" || Button_7.Content == "O" && Button_5.Content == "O" && Button_3.Content == "O")
+            {
+                MessageBox.Show("Робот выиграл");
+                Block();
+            }
+            else
+            {
+                MessageBox.Show("Ничья");
+                Block();
+            }
+        }
+
+        private void Button_1_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_2_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_3_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_4_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_5_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_6_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_7_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_8_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void Button_9_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).Content = "X";
+            (sender as Button).IsEnabled = false;
+            Random();
+        }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Button button in b)
+            {
+                button.IsEnabled = true;
+                button.Content = " ";
+            }
+        }
+    }
+}

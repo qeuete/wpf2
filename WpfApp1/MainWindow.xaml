@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        MinHeight="40"
+        MinWidth="200"
+        WindowStartupLocation="CenterOwner"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition />
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Delete"  Content="Удалить запись" Grid.Column="0" Grid.Row="2" Click="DeleteClick"/>
+            <ListBox x:Name="List" Grid.Column="0" Grid.Row="1" SelectionChanged="List_SelectionChanged"/>
+            <DatePicker x:Name="Date" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectedDateChanged="SelectDate"></DatePicker>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Название: " Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBox x:Name="Name" Grid.Column="1" Grid.Row="1" TextChanged="Name_TextChanged"></TextBox>
+            <TextBlock Text="Описание: " Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+            <TextBox x:Name="Description" Grid.Column="1" Grid.Row="4"></TextBox>
+            <Button x:Name="Save" Content="Сохранить" Grid.Column="1" Grid.Row="5" Click="SaveClick"></Button>
+            <Button x:Name="Create" Content="Создать" Grid.Column="1" Grid.Row="6" Click="CreateClick"></Button>
+        </Grid>
+    </Grid>
+</Window>
